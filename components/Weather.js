@@ -29,9 +29,6 @@ export default class Weather extends Component {
                 console.warn(error);
             });
     }
-
-    componentDidMount = () => this.fetchData()
-
     componentDidMount = () => this.fetchData()
     render() {
         return (
