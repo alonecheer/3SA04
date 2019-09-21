@@ -30,6 +30,11 @@ export default class Weather extends Component {
             });
     }
     componentDidMount = () => this.fetchData()
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.zipCode !== this.props.zipCode) {
+        this.fetchData()
+        }
+        }
     render() {
         return (
             <View style={styles.setLayout}>
