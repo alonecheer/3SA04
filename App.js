@@ -8,6 +8,6 @@ const RootStack = createStackNavigator({
   ZipCode: ZipCodeScreen
  },{
   initialRouteName: 'Weather',
-  initialRouteParams: {zipCode: '90110'}
+  initialRouteParams: {zipCode: '83000'}
  })
 export default createAppContainer(RootStack);

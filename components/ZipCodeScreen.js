@@ -11,12 +11,14 @@ const ZipItem = ({ place, code, navigate }) => (
 
     <TouchableHighlight onPress={() => navigate('Weather', { zipCode: code })}>
 
-        <View style={styles.BackgroundText}>
-            <View style={styles.zipItem}>
-                    <Text style={{ fontSize: 30, color: 'white' }}>{place}</Text>
-                    <Text style={{ fontSize: 30, color: 'white' }}>{code}</Text>
-            </View>
+
+        <View style={[styles.view, styles.withBorderRadius, styles.withBottomBorder,styles.zipItem]}>
+            
+            <Text style={styles.zipPlace}>{place}</Text>
+            <Text style={styles.zipCode}>{code}</Text>
+         
         </View>
+
 
     </TouchableHighlight>
 
@@ -26,7 +28,7 @@ const _keyExtractor = item => item.code
 export default class ZipCodeScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            headerTitle: (<Text>Choose a zip code</Text>),
+            headerTitle: (<Text style={{color:'orange',fontSize: 20, fontWeight: 'bold'}}>Choose a zip code</Text>),
         }
     }
     render() {
@@ -44,17 +46,47 @@ export default class ZipCodeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    zipItem: { alignItems: 'center', paddingTop: 10, },
-    BackgroundText: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-        backgroundColor: 'black',
-        borderRadius: 10,
-        margin: 1,
-        width: '100%',
-        height: '10%'
+    zipItem: {
+        alignItems: 'center', paddingTop: 10, flexDirection: 'row', flex: 1,
+       backgroundColor: '#82caaf', padding: '10%', marginTop: 20,
     },
-    container: { flex: 1, alignItems: 'center', width: '100%', height: '100%' },
+    zipItem2: {
+        alignItems: 'center',  flexDirection: 'column', flex: 1,
+        
+    },
+    zipPlace: {
+        textAlign:'left',
+       
+        color:'white',
+    },
+    zipCode: {
+        textAlign:'left',
+       
+        color:'white',
+    },
+    container: {
+        flex: 1,
+        backgroundColor: '#82caaf',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    view: {
+        width: 300,
+        height: 50,
+        backgroundColor: '#82caaf',
+        margin: 10,
+        padding: 10,
+        alignItems: 'center',
+    },
+    withBorderRadius: {
+        borderTopRightRadius: 5,
+        borderTopLeftRadius: 5
+        /* the same is ofr the borderBottomRight/Left */
+    },
+    withBottomBorder: {
+        borderBottomColor: '#82caaf',
+        borderBottomWidth: 1,
+        backgroundColor: '#82caaf'
+    },
+
 });

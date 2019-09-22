@@ -32,19 +32,20 @@ export default class Weather extends Component {
     componentDidMount = () => this.fetchData()
     componentDidUpdate = (prevProps) => {
         if (prevProps.zipCode !== this.props.zipCode) {
-        this.fetchData()
+            this.fetchData()
         }
-        }
+    }
     render() {
         return (
-            <View style={styles.setLayout}>
-                <ImageBackground source={require('./1.jpg')} style={styles.container}>
-                    <View style={styles.backdrop}>
+            <View style={styles.container}>
+                
+                <ImageBackground source={require('./bg.jpeg')} style={styles.backdrop}>
 
-                        <Text style={{ color: 'white', fontSize: 30, }}>Zip code is {this.props.zipCode}.</Text>
+                    <View style={styles.box1}>
+                        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', }}>Zip code is {this.props.zipCode}.</Text>
                         <Forecast {...this.state.forecast} />
-
                     </View>
+                    
                 </ImageBackground>
 
             </View>
@@ -52,11 +53,12 @@ export default class Weather extends Component {
     }
 }
 const styles = StyleSheet.create({
-    container: { flex: 1, alignItems: 'center', width: '100%', height: '100%' },
-    backdrop: {
-        width: '100%', height: '50%', opacity: 0.3, backgroundColor: '#000',
-        flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+    container: { paddingTop: 25 },
+    backdrop: { width: '100%', height: '100%' },
+    box1: {
+        flexDirection: 'column', justifyContent: 'space-around', alignItems: 'flex-start',
+        backgroundColor: "black", opacity: 0.3, alignItems: 'center', textAlign: 'center', color: 'white',
+        width: '100%', height: '45%',
     },
-    setLayout: { width: '100%', height: '100%' }
-
-});
+}
+);

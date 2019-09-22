@@ -5,18 +5,20 @@ export default class Forecast extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={{ fontSize: 60, color: 'white' }}>{this.props.main}</Text>
-                <Text style={{ fontSize: 30, color: 'white' }}>{this.props.description}</Text>
-                <View style={{flexDirection:'row',justifyContent:'center'}}>
-                    <Text style={{ fontSize: 40, color: 'white' }}>{this.props.temp}</Text>
-                    <Text style={{ paddingTop:5,fontSize: 20, color: 'white' }}>°C</Text>
-                </View>
+                <Text style={styles.box2}>{this.props.main}</Text>
+                <Text style={styles.box2}>{this.props.description}</Text>
+                <Text style={styles.box2}>{this.props.temp} °C</Text>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: { flexDirection: 'column', alignItems: 'center', justifyContent: 'center', },
-    
+    container: { paddingTop: 25 },
+    backdrop: { width: '100%', height: '100%' },
+    box2: {
+        flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start',
+        alignItems: 'center', textAlign: 'center', color: 'white',
+      padding: '5%', color:'white' ,fontSize: 20,fontWeight: 'bold',
+    },
 });
